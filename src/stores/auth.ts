@@ -1,6 +1,7 @@
 import {defineStore} from "pinia";
 import http from "@/utils/http.ts";
 import Cookies from 'js-cookie'
+import { ILoginData } from '@/types/auth'
 
 export const useAuthStore = defineStore({
   id: 'auth',
@@ -12,16 +13,18 @@ export const useAuthStore = defineStore({
     isAuthenticated: (state) => !!state.token,
   },
   actions: {
-    async login(params: ILoginData) {
-      try {
-        const res = await http.post('/auth/login/', params)
-        this.token = res?.data?.refresh
-        Cookies.set('token', res?.data?.refresh, { expires: 7 })
-        this.loginError = null
-      } catch (error) {
-        console.log(error)
-        this.loginError = 'Username yoki password xato!'
-      }
+    login(params: ILoginData) {
+      return new Promise((resolve, reject) => {
+        http.post('/auth/login/', params)
+          .then((response) => {
+            this.token = response?.data?.refresh
+            Cookies.set('token', response?.data?.refresh)
+            resolve(response?.data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
     },
-  },
+  }
 })

@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 import {Form as VeeForm, Field, ErrorMessage} from 'vee-validate';
 import * as yup from 'yup'
 import LogoIcon from '@/assets/icons/LogoIcon.vue'
+import Cookies from 'js-cookie'
 
 const authStore = useAuthStore();
 const router = useRouter()
@@ -17,9 +18,8 @@ const schema = toTypedSchema(
 );
 
 async function onSubmit(data: ILoginData) {
-
   await authStore.login(data).then(() => {
-    if (authStore.loginError === null) {
+    if (Cookies.get('token')) {
       router.push({ name: 'dashboard' })
     }
   })

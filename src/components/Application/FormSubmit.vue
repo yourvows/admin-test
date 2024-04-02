@@ -33,7 +33,7 @@
     <input
       type="text"
       placeholder="Abdullayev Abdulla Abdulla o’g’li"
-      class="justify-center w-full items-start px-4 py-2 mt-2.5 text-base rounded-md border border-indigo-100 border-solid bg-indigo-100 bg-opacity-20 text-slate-700 text-opacity-30 max-md:pr-5 max-md:max-w-full"
+      class="justify-center w-full items-start px-4 py-2 mt-2.5 text-base rounded-md border border-indigo-100 border-solid bg-indigo-100 bg-opacity-20  max-md:pr-5 max-md:max-w-full"
     >
     <div class="mt-4 text-xs font-medium tracking-wider uppercase text-zinc-900 max-md:max-w-full">
       Telefon raqamingiz

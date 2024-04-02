@@ -21,7 +21,7 @@
 <template>
   <div class="h-[100vh] relative flex flex-row">
     <div
-      class="flex justify-center items-center px-36 bg-white border border-solid border-black border-opacity-10  max-md:px-5">
+      class="flex w-full justify-center items-center px-36 bg-white border border-solid border-black border-opacity-10">
       <div class="flex flex-col mt-1">
         <div class="text-4xl font-bold tracking-wide leading-[56px] text-zinc-900 max-md:max-w-full">
           Homiy sifatida ariza topshirish

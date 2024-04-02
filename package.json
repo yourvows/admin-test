@@ -17,6 +17,7 @@
     "vee-validate": "^4.12.6",
     "vue": "^3.4.21",
     "vue-router": "4",
+    "vue3-apexcharts": "^1.5.2",
     "yup": "^1.4.0"
   },
   "devDependencies": {
