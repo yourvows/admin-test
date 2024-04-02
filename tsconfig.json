@@ -3,7 +3,6 @@
     "target": "esnext",
     "module": "esnext",
     "esModuleInterop": true,
-    "types": ["element-plus/global","reflect-metadata", "jest"],
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
