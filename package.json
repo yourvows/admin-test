@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@devindex/vue-mask": "^2.0.3",
     "@vee-validate/yup": "^4.12.6",
     "axios": "^1.6.8",
+    "js-cookie": "^3.0.5",
     "pinia": "^2.1.7",
     "vee-validate": "^4.12.6",
     "vue": "^3.4.21",
@@ -18,10 +20,12 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20.11.30",
     "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
+    "prettier": "3.2.5",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",

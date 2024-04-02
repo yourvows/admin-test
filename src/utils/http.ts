@@ -1,6 +1,5 @@
 import axios from 'axios'
-import router from '@/router'
-
+import Cookies from 'js-cookie'
 
 const baseURL = import.meta.env.VITE_API_URL
 
@@ -10,7 +9,7 @@ const axiosIns = axios.create({
 
 axiosIns.interceptors.request.use(
   (config) => {
-    const token = document.cookie.split(';').find((cookie) => cookie.includes('token'))?.split('=')[1] || null
+    const token = Cookies.get('token')
 
     if (token) config.headers.Authorization = token ? `Bearer ${token}` : ''
 
@@ -21,14 +20,15 @@ axiosIns.interceptors.request.use(
 
 axiosIns.interceptors.response.use(
   (response) => {
-    if (response.data && response.data.refresh) {
-      document.cookie = `refresh=${response.data.refresh}; path=/`;
+    if (response?.data?.refresh) {
+      Cookies.set('token', response?.data?.refresh, { expires: 7 })
     }
     return response;
   },
   (error) => {
     if (error.response.status === 401) {
-      router.push({name: 'login'})
+      Cookies.remove('token')
+      window.location.href = '/login'
     }
   }
 );

@@ -1,22 +1,11 @@
 <template>
-  <RouterView/>
+  <component :is="route.meta.layoutComponent">
+    <slot/>
+  </component>
 </template>
 
-<script setup>
-import {onMounted} from "vue";
-import http from "./utils/http";
+<script setup lang="ts">
+import {useRoute} from "vue-router";
 
-// onMounted(() => {
-//   http.post('/auth/login/',
-//       {
-//         username: 'metsenatadmin',
-//         password: 'uF9aH1vZ3bV2kN2y'
-//
-//       }).then(res => {
-//     console.log(res.data)
-//   }).catch(err => {
-//     console.log(err)
-//   })
-// });
+const route = useRoute();
 </script>
-

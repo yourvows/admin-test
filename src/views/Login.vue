@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import {toTypedSchema} from '@vee-validate/yup';
 import {useAuthStore} from "@/stores/auth.ts";
+import { useRouter } from 'vue-router'
 import {Form as VeeForm, Field, ErrorMessage} from 'vee-validate';
 import * as yup from 'yup'
+import LogoIcon from '@/assets/icons/LogoIcon.vue'
 
 const authStore = useAuthStore();
+const router = useRouter()
 
 const schema = toTypedSchema(
     yup.object({
@@ -13,29 +16,26 @@ const schema = toTypedSchema(
     }),
 );
 
-function onSubmit(data: ILoginData) {
-  authStore.login(data)
+async function onSubmit(data: ILoginData) {
+
+  await authStore.login(data).then(() => {
+    if (authStore.loginError === null) {
+      router.push({ name: 'dashboard' })
+    }
+  })
 }
 
 </script>
 <template>
   <div class="flex min-h-[100vh] justify-center items-center whitespace-nowrap bg-neutral-100 ">
     <div class="flex flex-col max-w-full">
-      <div class="flex gap-2.5 self-center text-sm font-semibold leading-4 text-white uppercase">
-        <img
-            alt="Metsenat logo"
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/8953827202e743b9e05e31f953a8017a75062dab1185b9cfbb5cbe001c40373b?"
-            class="grow shrink-0 aspect-[7.69] basis-0 w-fit"
-        />
-        <div class="justify-center px-2.5 py-2 my-auto bg-red-500 rounded-md">
-          club
-        </div>
-      </div>
-      <VeeForm class=" p-8 mt-12 text-base font-medium bg-white rounded-xl border border-violet-100 border-solid shadow-2xl max-md:px-5 max-md:mt-10"
-               :validation-schema="schema"
-               v-slot="{handleSubmit}"
-               as="div"
+
+      <LogoIcon />
+      <VeeForm
+        class=" p-8 mt-12 text-base font-medium bg-white rounded-xl border border-violet-100 border-solid shadow-2xl max-md:px-5 max-md:mt-10"
+        :validation-schema="schema"
+        v-slot="{handleSubmit}"
+        as="div"
       >
         <form class="flex flex-col" @submit="handleSubmit($event, onSubmit)">
         <div class="text-2xl font-bold leading-7 text-slate-800">Kirish</div>

@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "esnext",
+    "module": "esnext",
+    "esModuleInterop": true,
+    "types": ["element-plus/global","reflect-metadata", "jest"],
     "useDefineForClassFields": true,
-    "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
+    "typeRoots": ["./types", "./node_modules/@types"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"]
     },
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -20,8 +24,8 @@
 
     /* Linting */
     "strict": true,
-
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src","./src/**/*.tsx", "./src/**/*.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
