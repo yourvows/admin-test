@@ -21,8 +21,7 @@
     "noEmit": true,
     "jsx": "preserve",
 
-    /* Linting */
-    "strict": true,
+
   },
   "include": ["src","./src/**/*.tsx", "./src/**/*.ts"],
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],

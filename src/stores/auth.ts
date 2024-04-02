@@ -1,7 +1,6 @@
 import {defineStore} from "pinia";
 import http from "@/utils/http.ts";
 import Cookies from 'js-cookie'
-import { ILoginData } from '@/types/auth'
 
 export const useAuthStore = defineStore({
   id: 'auth',

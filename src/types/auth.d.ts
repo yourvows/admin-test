@@ -1,5 +1,3 @@
-import ApexCharts from 'apexcharts'
-
 declare interface ILoginData {
   username: string;
   password: string;
