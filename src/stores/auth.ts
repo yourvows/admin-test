@@ -9,7 +9,7 @@ export const useAuthStore = defineStore({
     loginError: null as string | null,
   }),
   getters: {
-    isAuthenticated: (state) => !!state.token,
+    isAuthenticated: (state) => !state.token,
   },
   actions: {
     login(params: ILoginData) {

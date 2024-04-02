@@ -29,7 +29,6 @@ async function onSubmit(data: ILoginData) {
 <template>
   <div class="flex min-h-[100vh] justify-center items-center whitespace-nowrap bg-neutral-100 ">
     <div class="flex flex-col max-w-full">
-
       <LogoIcon />
       <VeeForm
         class=" p-8 mt-12 text-base font-medium bg-white rounded-xl border border-violet-100 border-solid shadow-2xl max-md:px-5 max-md:mt-10"
