@@ -38,10 +38,10 @@ const router = createRouter({
 
 router.beforeEach(loadLayoutMiddleware)
 
-router.beforeEach((to, from, next) => {
-  if (to.name !== 'login' && !Cookies.get('token')) next({name: 'login'})
-  else next()
-
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.name !== 'login') next({name: 'login'})
+//   else next()
+//
+// })
 
 export default router
